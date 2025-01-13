@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+    body {
+        font-family: 'Roboto', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f4f7f6;
+    }
+
+    .login-container {
+        background: #fff;
+        border-radius: 12px;
+        padding: 40px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .login-container h2 {
+        margin-bottom: 20px;
+        font-size: 2rem;
+        color: #333;
+    }
+
+    .form-group {
+        margin-bottom: 25px;
+    }
+
+    label {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #4a5568;
+        margin-bottom: 10px;
+        display: block;
+    }
+
+    input {
+        width: 100%;
+        padding: 14px 18px;
+        border-radius: 8px;
+        border: 1px solid #ddd;
+        font-size: 1rem;
+        color: #333;
+        background-color: #f9fafb;
+    }
+
+    button {
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        cursor: pointer;
+        padding: 14px;
+        font-size: 1.1rem;
+        border-radius: 8px;
+        width: 100%;
+        transition: background-color 0.3s;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+
+    button:active {
+        background-color: #388e3c;
+    }
+
+    .error {
+        color: red;
+        font-size: 0.9rem;
+        margin-top: 10px;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+        .login-container {
+            padding: 30px;
+        }
+
+        .login-container h2 {
+            font-size: 1.6rem;
+        }
+
+        button {
+            font-size: 1rem;
+            padding: 12px;
+        }
+
+        input {
+            padding: 12px 15px;
+            font-size: 0.95rem;
+        }
+
+        label {
+            font-size: 1rem;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .login-container {
+            padding: 20px;
+        }
+
+        .login-container h2 {
+            font-size: 1.4rem;
+        }
+
+        button {
+            font-size: 0.9rem;
+            padding: 10px;
+        }
+
+        input {
+            padding: 10px 12px;
+            font-size: 0.9rem;
+        }
+
+        label {
+            font-size: 0.95rem;
+        }
+    }
+</style>
+
+</head>
+<body>
+
+
+
+<div class="login-container">
+    <marquee>Username: Admin & Pass: 1234</marquee>
+    <h2>Login</h2>
+    <form id="loginForm">
+        <div class="form-group">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit">Login</button>
+        <p class="error" id="error-message"></p>
+    </form>
+</div>
+
+
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        const errorMessage = document.getElementById('error-message');
+
+        // Predefined credentials (username and password)
+        const validUsername = 'admin';
+        const validPassword = '1234';
+
+        // Check if username and password match
+        if (username === validUsername && password === validPassword) {
+            // Redirect to index.html if credentials are correct
+            window.location.href = 'form.html';
+        } else {
+            // Show error message if credentials do not match
+            errorMessage.textContent = 'Invalid username or password. Please try again.';
+        }
+    });
+</script>
+
+</body>
+</html>
